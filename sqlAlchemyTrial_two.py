@@ -38,8 +38,8 @@ user = User(username = 'trial7',
             is_bot = 'no')
 
 try:
-    session.add(user)
-    session.commit()
+    # session.add(user)
+    # session.commit()
     print("sure")
 finally:
     print("done")
@@ -53,8 +53,12 @@ finally:
 
 # Select all users
 result = engine.execute("SELECT * FROM users")
+#result = engine.execute("DELETE FROM users")
 
 rows = result.fetchall()
 
-for row in rows:
-    print(row)
+if len(rows) == 0:
+    print("bhag")
+else:
+    for row in rows:
+        print(row)
